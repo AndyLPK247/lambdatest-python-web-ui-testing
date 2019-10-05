@@ -1,7 +1,6 @@
 """
 This module contains DuckDuckGoSearchPage,
 the page object for the DuckDuckGo search page.
-Warning: the SEARCH_INPUT locator had to be updated because the page changed!
 """
 
 from selenium.webdriver.common.by import By
