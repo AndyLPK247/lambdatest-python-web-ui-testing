@@ -1,0 +1,17 @@
+{
+  "authentication": {
+    "username": "",
+    "key": ""
+  },
+  
+  "webdriver": {
+    "browserName": "chrome",
+    "build": "1.0",
+    "console": true,
+    "network": true,
+    "platform": "Windows 10",
+    "version": "77",
+    "video": true,
+    "visual": true
+  }
+}
