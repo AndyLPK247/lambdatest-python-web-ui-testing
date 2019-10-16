@@ -6,7 +6,7 @@
   
   "webdriver": {
     "browserName": "chrome",
-    "build": "1.0",
+    "build": "Web UI Testing with Python and LambdaTest",
     "console": true,
     "network": true,
     "platform": "Windows 10",

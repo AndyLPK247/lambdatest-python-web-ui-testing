@@ -27,7 +27,6 @@ def lt_config(scope='session'):
 
   # Verify webdriver config
   assert 'webdriver' in config
-  assert 'name' in config['webdriver']
   assert 'browserName' in config['webdriver']
   assert 'platform' in config['webdriver']
 
@@ -50,21 +49,21 @@ def browser(lt_config, request):
   # Request a remote browser from LambdaTest
   caps = lt_config['webdriver']
   caps['name'] = request.node.name
-  b = selenium.webdriver.Remote(command_executor=url, desired_capabilities=caps)
+  driver = selenium.webdriver.Remote(command_executor=url, desired_capabilities=caps)
 
   # Make its calls wait up to 30 seconds for elements to appear
-  b.implicitly_wait(30)
+  driver.implicitly_wait(30)
 
   # Return the WebDriver instance for the setup
-  yield b
+  yield driver
   
   # Create a finalizer for the remote browser
   def finalizer():
       if request.node.rep_call.failed:
-          browser.execute_script("lambda-status=failed")
+          driver.execute_script("lambda-status=failed")
       else:
-          browser.execute_script("lambda-status=passed")
-          browser.quit()
+          driver.execute_script("lambda-status=passed")
+          driver.quit()
   
   # Add the finalizer to the test
   request.addfinalizer(finalizer)
