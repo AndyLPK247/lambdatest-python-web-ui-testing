@@ -22,6 +22,10 @@ To run tests, run the following command from the project's root directory:
 
     pipenv run python -m pytest
 
+To run tests in parallen, add "-n \[num-threads\]":
+
+    pipenv run python -m pytest -n 5
+
 The terminal will print the pytest banner.
 Be patient - tests may take a few seconds to complete.
 You can also check results on the LambdaTest website.
@@ -46,4 +50,3 @@ You can also try to write tests for other Web apps!
 * [Test Automation University](https://testautomationu.applitools.com/) courses
   * [Web Element Locator Strategies](https://testautomationu.applitools.com/web-element-locator-strategies/)
   * [Behavior Driven Python with pytest-bdd](https://testautomationu.applitools.com/behavior-driven-python-with-pytest-bdd/)
-  
