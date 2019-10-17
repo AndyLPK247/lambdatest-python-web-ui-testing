@@ -22,7 +22,7 @@ To run tests, run the following command from the project's root directory:
 
     pipenv run python -m pytest
 
-To run tests in parallen, add "-n \[num-threads\]":
+To run tests in parallel, add "-n \[num-threads\]":
 
     pipenv run python -m pytest -n 5
 
