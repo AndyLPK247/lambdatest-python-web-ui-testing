@@ -42,7 +42,7 @@ def lt_config(scope='session'):
 def browser(lt_config, request):
 
   # Concatenate the URL
-  username = lt_config['authentication']['username'].replace('@', '%40')
+  username = lt_config['authentication']['username']
   key = lt_config['authentication']['key']
   url = f"http://{username}:{key}@hub.lambdatest.com/wd/hub"
 
@@ -59,11 +59,11 @@ def browser(lt_config, request):
   
   # Create a finalizer for the remote browser
   def finalizer():
-      if request.node.rep_call.failed:
-          driver.execute_script("lambda-status=failed")
-      else:
-          driver.execute_script("lambda-status=passed")
-          driver.quit()
+    if request.node.rep_call.failed:
+      driver.execute_script("lambda-status=failed")
+    else:
+      driver.execute_script("lambda-status=passed")
+    driver.quit()
   
   # Add the finalizer to the test
   request.addfinalizer(finalizer)
